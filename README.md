@@ -1,5 +1,5 @@
 # python_ex_2
-Python refreshed exercises - part 2
+Python refresher exercises - part 2
 
 - To work on these please __fork__ this repo (upper right corner) and clone __your__ version
 - It contains 2 tasks (exercises) in separate .py files each worth 1 pt
