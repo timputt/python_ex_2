@@ -28,7 +28,7 @@
 # your function MUST react the same (OK or error) but you don't have to use my exact error messages or codes 
 # just something similar to that effect. You could even be more helpful e.g. 
 # "throatwobblermangrove is too long (21 chars), must be 3 - 16"
-# It's OK to bail you at the first proven error, even if there would have been more errors later!
+# It's OK to bail out at the first proven error, even if there would have been more errors later!
 # Also, I prb. forgot some possible edge cases, please add more if needed!
 
 # As proof, please manually copy/paste the console output for one run into a file called
