@@ -36,26 +36,7 @@ gave_up = False
 attempts_left = 3
 
 # your code - start
-while True:
-    email = input("email address?")
-    r, err_str = is_valid(email)
 
-    if r == None:
-        print(email, "is valid!")
-        break
-    
-    # error
-    attempts_left -= 1
-
-    # no attempts left - bail out 
-    if attempts_left == 0:
-        gave_up = True
-        print("No attempts left, bailing out")
-        break
-
-    print(email, "is invalid!")
-    print("Reason:", err_str)
-    print(f"Try again, {attempts_left} attempts left")
 
 # your code - end
 if not gave_up:
