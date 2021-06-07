@@ -36,35 +36,45 @@
 
 def is_valid_email_address(s):
     
-    # your code here
+    # Tim's code here
 
-    
+    #confirm there's only one @ symbol
+    if s.count("@") != 1:
+        return 1, "Looks like you must have only one @ symbol"
 
+    l = s.split("@")
+    A , post = l[0], l[1]
+    print(A, post) #Debug - confirm pulling A and post correctly
 
-    
+    #Confirm that A is between 3 and 16 characters
+    if len(A) <3 or len(A) > 16:
+        print("A length is:",len(A)) #Debug - confirm length of A
+        return 2, "The email must be between 3 and 16 character long."
 
-# This if ensures that the following is NOT run if this file was imported as a module (which we'll do next!)
-if __name__ == "__main__":
+    #Confirm count of . is only 1
+    if post.count(".") != 1:
+        return 3, "The email address must have 1 dot in it."
 
-    # tests, including edge cases (incomplete? add more!)
-    email_list = ["charding@iastate.edu", 
-        "chris.edu",
-        "chris@edu",
-        "@bla.edu",
-        "throatwobblermangrove@mpfc.org", 
-        "chris@X.com",
-        "chris.harding@iastate.edu",
-        "chris@pymart.biz",
-        "chris@letsgo!.org",
-        "chris@megasavings.org",
-        "tc@tank.com",
-        ]
-    # validate each email from the list
-    for e in email_list:
-        r, s = is_valid_email_address(e) 
-        if r == None:
-            print(e, s) # OK
-        else:
-            print(f"{e} - error: {s}, error code: {r}") # Error
+    #Split apart post @ symbol
+    l2 = post.split(".")
+    B, C = l2[0], l2[1]
 
-        
+    #Confirm that A and B only contains alpha and numbers
+    if A.isalnum() == False or B.isalnum() == False:
+        return 4, "You can only use letters and numbers in the email address"
+
+    #Confirm the part after the @ and before part C can only be 2-8 characters
+    if len(B) <2 or len(B) >8:
+        return 5, "Sorry, but after the @ symbol and before the domain suffix must be between 2 and 8 characters."
+
+    #THIS IS THE ONE SECTION I DIDN'T RECALL.
+    #the domain suffix is com, edu, org, gov
+    if C not in ["com", "edu", "org", "gov"]:
+        print("Your domain site is:", C)
+        return 6, "Sorry, your email domain must end in com, edu, org or gov."
+
+    #if everything looks good then print that there aren't any error codes and it's a valid email    
+    else:
+        return None, "Valid Email"
+
+print (is_valid_email_address("chris.edu"))
